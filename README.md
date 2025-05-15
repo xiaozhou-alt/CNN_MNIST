@@ -19,12 +19,12 @@ pip install torch torchvision numpy pandas matplotlib seaborn PyQt5
 ## 项目文件夹结构：
 
 ```markdown
-mnist/
+CNN_MNIST/
 ├── MINIST-master/data/          # MNIST数据集
-│   ├── train-images-idx3-ubyte.gz
-│   ├── train-labels-idx1-ubyte.gz
-│   ├── t10k-images-idx3-ubyte.gz
-│   └── t10k-labels-idx1-ubyte.gz
+│   ├── train-images-idx3-ubyte.gz # (9.9 MB, 解压后 47 MB, 包含 60,000 个样本)
+│   ├── train-labels-idx1-ubyte.gz # (29 KB, 解压后 60 KB, 包含 60,000 个标签)
+│   ├── t10k-images-idx3-ubyte.gz  # (1.6 MB, 解压后 7.8 MB, 包含 10,000 个样本)
+│   └── t10k-labels-idx1-ubyte.gz  # (5KB, 解压后 10 KB, 包含 10,000 个标签)
 ├── utils/
 │   └── data_loader.py          # 数据加载和预处理
 ├── train.py                    # 模型训练脚本
@@ -36,9 +36,12 @@ mnist/
 ## 数据集介绍
 使用标准MNIST数据集：
 
-- 训练集：60,000张28x28灰度手写数字图像
-- 测试集：10,000张28x28灰度手写数字图像
-- 数字范围：0-9
+- **训练集**：60,000张28x28灰度手写数字图像
+- **测试集**：10,000张28x28灰度手写数字图像
+- **数字范围**：0-9
+
+![data](./img/data.png)
+
 ## 数据预处理
 1. **图像归一化**：像素值缩放到[0,1]范围
 3. **数据增强**：
@@ -58,7 +61,11 @@ mnist/
 
 使用准确率（Accuracy）、召回率（Recall）、F1分数（f1-score）对模型进行评估，结果如下所示：
 
-![evaluate](./img/evaluate.png)
+<img src="./img/evaluate.png#" alt="evaluate" style="zoom:150%;" />
+
+混淆矩阵如下所示：
+
+![confusion](./img/confusion_matrix.png)
 
 手写板的UI界面如下所示：
 
